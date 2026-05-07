@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;1,700;1,800&family=Hanken+Grotesk:wght@400;600&display=swap');
+
+@theme {
+  --color-background: #fcf8f9;
+  --color-on-background: #1b1b1c;
+  --color-surface: #fcf8f9;
+  --color-surface-bright: #fcf8f9;
+  --color-surface-container: #f0edee;
+  --color-on-surface: #1b1b1c;
+  --color-on-surface-variant: #434656;
+  --color-primary: #0040e0;
+  --color-on-primary: #ffffff;
+  --color-tertiary-fixed: #f5e60a;
+  --color-on-tertiary-fixed: #1f1c00;
+
+  --spacing-base: 8px;
+  --spacing-xs: 4px;
+  --spacing-sm: 12px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --spacing-xl: 80px;
+  --spacing-margin: 32px;
+  --spacing-gutter: 24px;
+}
+
+@layer utilities {
+  .font-display-lg, .font-headline-md, .font-headline-lg {
+    font-family: "Montserrat", sans-serif;
+  }
+  .font-body-lg, .font-body-md, .font-label-md {
+    font-family: "Hanken Grotesk", sans-serif;
+  }
+
+  .text-display-lg { font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 800; }
+  .text-headline-md { font-size: 24px; line-height: 1.2; font-weight: 700; }
+  .text-body-lg { font-size: 18px; line-height: 1.6; font-weight: 400; }
+  .text-body-md { font-size: 16px; line-height: 1.6; font-weight: 400; }
+  .text-label-md { font-size: 14px; line-height: 1.0; letter-spacing: 0.05em; font-weight: 600; }
+}
+
+.paper-grain {
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGpnAZVYEp6fFeB1ZcX5DZUyCHEkQQP7X6Q353ZSlc7AHjOWbnJhRpPYyTtBxCeKqpGOfRNdHKDJHreUc2BUYjoVXURFLqTVgvdUmrcQg0gp55jlVHuBK8WmVjYU0peaYitqLb1GHM2-MlflkEgKUEWiSzRHEq8vRGHddOUcH4VMzhyqMCJtQt32hR70TXr8cRUyDR5UgU1P0fvNM46iSNf03n1CZ7evbv1M6bb4bBCU9ClSs30smwzTggn0qlZ3Fwh2to8n5UCfc");
+}
+
+.peel-shadow {
+  box-shadow: 4px 4px 0 0 rgba(27, 27, 28, 1);
+}
+
+.peel-shadow:active {
+  box-shadow: 0 0 0 0 rgba(27, 27, 28, 1);
+  transform: translate(2px, 2px);
+}
+
+.die-cut {
+  filter: drop-shadow(0 0 0 4px white) drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+}
