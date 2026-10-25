@@ -197,6 +197,29 @@ export default function App() {
     [categoryMap, allStickers],
   );
 
+  // Background Prefetcher: Silently preloads active and upcoming category images into browser cache
+  const prefetchedUrls = useRef<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (categories.length === 0) return;
+
+    // Preload current category stickers + upcoming category stickers ahead of the 12s cycle
+    const currentPool = getCategoryPool(currentCategory.id);
+    const nextCategory = categories[(activeCategoryIndex + 1) % categories.length];
+    const nextPool = nextCategory ? getCategoryPool(nextCategory.id) : [];
+
+    const urlsToPreload = [...currentPool, ...nextPool];
+
+    for (const src of urlsToPreload) {
+      if (!prefetchedUrls.current.has(src)) {
+        prefetchedUrls.current.add(src);
+        const img = new Image();
+        img.decoding = "async";
+        img.src = src;
+      }
+    }
+  }, [activeCategoryIndex, categories, currentCategory.id, getCategoryPool]);
+
   // 3. Floating Sticker generation with collision prevention
   const makeCandidateSticker = useCallback(
     (id: number): FloatingSticker => {
@@ -374,7 +397,7 @@ export default function App() {
               alt="Floating sticker"
               className="w-full h-auto object-contain select-none pointer-events-none"
               src={sticker.src}
-              loading="lazy"
+              decoding="async"
             />
           </motion.div>
         ))}
