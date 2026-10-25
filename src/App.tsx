@@ -5,6 +5,7 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { motion } from "motion/react";
+import { Analytics } from "@vercel/analytics/react";
 
 const stickerModules = import.meta.glob("../public/stickers/*.{png,jpg,jpeg,webp,gif}", {
   eager: true,
@@ -204,6 +205,8 @@ export default function App() {
           Something big is peeling back soon. We're crafting the ultimate playground for vinyl enthusiasts, artists, and sticker addicts. Don't let your surfaces stay naked.
         </p>
       </motion.div>
+
+      <Analytics />
     </main>
   );
 }
