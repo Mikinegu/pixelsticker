@@ -333,6 +333,11 @@ export default function App() {
 
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center px-margin overflow-hidden bg-background text-on-background font-body-md">
+      {/* Top Left Logo */}
+      <div className="fixed top-4 left-4 md:top-6 md:left-6 z-30">
+        <img src="/logo.png" alt="Pixel Sticker Logo" className="h-10 md:h-12 w-auto" />
+      </div>
+
       {/* Top Right Corner Category Spotlight Indicator */}
       <div className="fixed top-4 right-4 md:top-6 md:right-6 z-30 pointer-events-none">
         <AnimatePresence mode="wait">
